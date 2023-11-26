@@ -92,7 +92,7 @@
             getBotResponse(userInput);
             document.getElementById("userInput").value = "";
         }
-
+    
         function displayUserMessage(message) {
             var chatMessages = document.getElementById("chatMessages");
             var userMessage = document.createElement("div");
@@ -101,7 +101,7 @@
             chatMessages.appendChild(userMessage);
             chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll to bottom
         }
-
+    
         function displayBotMessage(message) {
             var chatMessages = document.getElementById("chatMessages");
             var botMessage = document.createElement("div");
@@ -110,7 +110,7 @@
             chatMessages.appendChild(botMessage);
             chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll to bottom
         }
-
+    
         function getBotResponse(question) {
             var answers = {
                 "당신의 이름은?": "제 이름은 챗봇입니다.",
@@ -137,7 +137,7 @@
                 "공학윤리": "전공탐색, 공학계, 2학점",
                 "인간과건축": "전공탐색, 공학계, 2학점",
                 "정보통신과컴퓨터개론": "전공탐색, 공학계, 2학점",
-                // 필요한 만큼 질문과 답변 추가하기
+                // Other responses
             };
             var botResponse = answers[question.toLowerCase()] || "그 질문을 이해하지 못했어요.";
             displayBotMessage(botResponse);

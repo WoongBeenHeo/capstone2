@@ -1,0 +1,469 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title></title>
+
+<script type = "text/javascript">
+    document.write("<form name = form>");
+    
+
+    
+    
+    document.write("<table border = 1 width = 1000>");
+    document.write("<tr align = center><td><h1>제주대 경영정보학과 졸업학점 조회</h1></td></tr>");
+    document.write("<tr align = center><td><font><b>학생 정보</b></font></td></tr>");
+    document.write("<tr align = center><td>"
+     + "<table border = 1 width = 50%>"
+     + "<tr>" 
+     + "<td>학번</td>"
+     + "<td><input type = text id = num></td>"
+     + "<td>이름</td>"
+     + "<td><input type = text id = name></td>"
+     + "</tr>"
+     + "<tr>"
+     + "<td>이메일</td>"
+     + "<td><input type = text id = mail></td>"
+     + "<td>연락처</td>"
+     + "<td><input type = text id = number></td>"
+     + "</tr>"
+     + "<tr>"
+     + "<td>졸업년도</td>"
+     + "<td colspan = 3>"
+     + "<input type = radio name = year value = 1><label>2023년</label>"
+     + "<input type = radio name = year value = 2><label>2024년</label>"
+     + "<input type = radio name = year value = 3><label>2025년</label></td>"
+     + "</tr></table>");
+    document.write("</table>");
+    
+    
+    document.write("<table border = 0 width = 1000>");
+    document.write("<tr><td>"
+     + "<p align = center><br>"
+     + "<input type = button value = Test onclick = test(this.form)>"
+     + "<input type = button value = 졸업학점조회 onclick = search(this.form)>"
+     + "<input type = reset name = reset value = Reset>"
+     + "<input type=button value='Open PDF' onclick=\"window.open('https://drive.google.com/file/d/1tqNNmXxbuHzhKYl1V7UfBBF3d-ZzvIaL/view?usp=drive_link')\"></p>"
+     + "</td></tr>"
+     + "<tr><td><br>"
+     + "<font size=3><b> ※ 성적 정보 </b></font>"
+     + "</td></tr>"
+     + "</table>");
+    
+    
+    
+    function test(){
+        for (i=0;i<8 ;++i ){
+        if (document.form.check[i].checked == true){
+            check++;
+            switch(i){
+            case 0: case 1: case 2: case 3: case 4: case 5: case 6: case 7:
+                document.form.num.value="2019103301";
+                document.form.name.value="허웅빈";
+                document.form.mail.value="zxcv71325352@gmail.com";
+                document.form.number.value="010-5485-0674";
+                break; }}}
+        var i=0, check = 0; //학기 체크 확인
+        for (i=0;i<8 ;++i ){
+        if (document.form.check[i].checked == true){
+        check++;
+        switch(i){
+        case 0: //1학년1학기 : sel[0]~sel[11], sub[0]~sub[12], hak[0]~hak[12], grd[0]~grd[11]
+            document.form.sel[0].value = 5;
+            document.form.sub[0].value = "경영학개론";
+            document.form.hak[0].value = "3";
+            document.form.grd[0].value = "A-";
+            break;
+        case 1: //1학년2학기 : sel[12]~sel[23], sub[12]~sub[23], hak[12]~hak[23], grd[12]~grd[23]
+            document.form.sel[12].value = 5;
+            document.form.sub[12].value = "경영정보시스템";
+            document.form.hak[12].value = "3";
+            document.form.grd[12].value = "B0";		break;
+        case 2: //2학년1학기 : sel[24]~sel[35], sub[24]~sub[35], hak[24]~hak[35], grd[24]~grd[35]
+            document.form.sel[24].value = 5;
+            document.form.sub[24].value = "e-마케팅";
+            document.form.hak[24].value = "3";
+            document.form.grd[24].value = "B+";		break;
+        case 3: //2학년2학기 : sel[36]~sel[47], sub[36]~sub[47], hak[36]~hak[47], grd[36]~grd[47]
+            document.form.sel[36].value = 5;
+            document.form.sub[36].value = "데이터베이스";
+            document.form.hak[36].value = "3";
+            document.form.grd[36].value = "A0";		break;
+        case 4: //3학년1학기 : sel[48]~sel[59], sub[48]~sub[59], hak[48]~hak[59], grd[48]~grd[59]
+            document.form.sel[48].value = 5;
+            document.form.sub[48].value = "소프트웨어공학";
+            document.form.hak[48].value = "3";
+            document.form.grd[48].value = "A+";		break;
+        case 5: //3학년2학기 : sel[60]~sel[71], sub[60]~sub[71], hak[60]~hak[71], grd[60]~grd[71]
+            document.form.sel[60].value = 5;
+            document.form.sub[60].value = "캡스톤디자인1";
+            document.form.hak[60].value = "2";
+            document.form.grd[60].value = "B+";     break;
+        case 6: //4학년1학기 : sel[72]~sel[83], sub[72]~sub[83], hak[72]~hak[83], grd[72]~grd[83]
+            document.form.sel[72].value = 5;
+            document.form.sub[72].value = "캡스톤디자인2";
+            document.form.hak[72].value = "2";
+            document.form.grd[72].value = "A0";		break;
+        case 7: //4학년2학기 : sel[84]~sel[95], sub[84]~sub[95], hak[84]~hak[95], grd[84]~grd[95]
+            document.form.sel[84].value = 5;
+            document.form.sub[84].value = "캡스톤디자인3";
+            document.form.hak[84].value = "2";
+            document.form.grd[84].value = "A0";		break;
+            }}}
+        if(check == 0) {window.alert('학기를 체크해주세요');	}}
+    
+    
+    for(var i=1; i<=4; ++i){ // 1학년~4학년
+    
+    for(var j=1; j<=2; ++j){ // 1학기~2학기
+     document.write("<table border=1>");
+     document.write("<tr><td colspan=4 align=left> >>" + i + "학년" + j + "학기");
+     document.write("<input type = checkbox id = check onclick = Disabled(this.form) value = 1></td></tr>");
+     document.write("<tr>");
+     document.write("<td>이수구분</td>");
+     document.write("<td>교과목명</td>");
+     document.write("<td>학점</td>");
+     document.write("<td>성적</td>");
+     document.write("</tr>");
+            
+    for(var ls=1; ls<=12; ++ls){ // 12개 과목선택란
+     document.write("<tr><td>");
+     document.write("<select id = sel disabled = true value = 1>");
+     document.write("<option value = 1>구분선택</option>");
+     document.write("<option value = 2>기초교양</option>");
+     document.write("<option value = 3>전공탐색</option>");
+     document.write("<option value = 4>전인교양</option>");
+     document.write("<option value = 5>전공</option>");
+     document.write("<option value = 6>전공필수</option>");
+     document.write("</select></td>");
+     document.write("<td><input type = text id = sub disabled = true maxlength = 20 size = 20></td>");
+     document.write("<td><input type = text id = hak disabled = true maxlength = 5 size = 5 onBlur = hakcheck(this.form)></td>");
+     document.write("<td><input type = text id = grd disabled = true maxlength = 5 size = 5 onBlur = grdcheck(this.form)></td>");
+     document.write("</tr>");
+    }
+     document.write("</table>");
+    }
+    }
+    
+    
+    
+    
+    function Disabled(m){
+        var i=0,j=0,z=0;	
+        for (i=0;i<8 ;++i ){
+            if(i==0){ j=0; z=12; }       //1학년1학기
+            else if(i==1){ j=12; z=24; }  //1학년2학기
+            else if(i==2){ j=24; z=36; }  //2학년1학기
+            else if(i==3){ j=36; z=48; }  //2학년2학기
+            else if(i==4){ j=48; z=60; }  //3학년1학기
+            else if(i==5){ j=60; z=72; }  //3학년2학기
+            else if(i==6){ j=72; z=84; }  //4학년1학기
+            else{ j=84; z=96; }          //4학년2학기
+    
+            if (document.form.check[i].checked == true){
+                for(var k=j;k<z;k++){
+                document.form.sel[k].disabled = false; 
+                document.form.sub[k].disabled = false;
+                document.form.hak[k].disabled = false;
+                document.form.grd[k].disabled = false; }
+                }
+            else { 
+                for(var k=j;k<z;k++){
+                document.form.sel[k].disabled = true; 
+                document.form.sub[k].disabled = true;
+                document.form.hak[k].disabled = true;
+                document.form.grd[k].disabled = true;
+                document.form.sel[k].value = 1;
+                document.form.sub[k].value = "";
+                document.form.hak[k].value = "";
+                document.form.grd[k].value = ""; }
+                }
+        }
+    }
+    
+    
+    
+    
+    
+    function grdcheck(){
+        var i=0,j=0,z=0;
+        for (i=0;i<8 ;++i ){
+            if (document.form.check[i].checked == true){
+                switch(i){
+                case 0:j=0, z=12;  break;   //1학년1학기
+                case 1:j=12, z=24; break;   //1학년2학기
+                case 2:j=24, z=36; break;   //2학년1학기
+                case 3:j=36, z=48; break;   //2학년2학기
+                case 4:j=48, z=60; break;   //3학년1학기
+                case 5:j=60, z=72; break;   //3학년2학기
+                case 6:j=72, z=84; break;   //4학년1학기
+                default:j=84, z=96; break;  //4학년2학기
+                }
+        for(var k=j;k<z;k++){
+            if((document.form.grd[k].value == "A+") || 
+              (document.form.grd[k].value == "A0") ||
+              (document.form.grd[k].value == "A-") || 
+              (document.form.grd[k].value == "B+") || 
+                   (document.form.grd[k].value == "B0") |
+                   (document.form.grd[k].value == "B-") || 
+                   (document.form.grd[k].value == "C+") || 
+                   (document.form.grd[k].value == "C0") ||
+                   (document.form.grd[k].value == "C-") || 
+                   (document.form.grd[k].value == "D+") || 
+                   (document.form.grd[k].value == "D0") ||
+                   (document.form.grd[k].value == "D-") || 
+                   (document.form.grd[k].value == "F") || 
+                   (document.form.grd[k].value == "P") || 
+                   (document.form.grd[k].value == "N") || 
+                   (document.form.grd[k].value == ""))
+               {}
+        else{
+        window.alert("성적을 잘못입력하셨습니다.\n"
+                    +"A+, A0, A-, B+, B0, B- ,C+, C0, C-, D+, D0, D-, F, N, P\n"
+               +"중 하나를 입력해주세요.");
+        document.form.grd[k].value = "";
+        break;
+        }}}}
+    }
+    
+    
+    function hakcheck(){
+        var i=0,j=0,z=0,tot=0,total=0;
+        for (i=0;i<8 ;++i ){
+            if (document.form.check[i].checked == true){
+                switch(i){
+                case 0:j=0, z=12;  break;
+                case 1:j=12, z=24; break;
+                case 2:j=24, z=36; break;
+                case 3:j=36, z=48; break;
+                case 4:j=48, z=60; break;
+                case 5:j=60, z=72; break;
+                case 6:j=72, z=84; break;
+                default:j=84, z=96; break;
+                }
+        for(var k=j;k<z;k++){
+            tot = parseInt(document.form.hak[k].value);
+            total = total + tot;
+            if(total > 24){
+            window.alert("한학기 최대 수강 가능 학점인 20학점을 초과하였습니다.\n"
+                   +"재입력하세요.");
+            document.form.sel[k].value =1;
+            document.form.sub[k].value = "";
+            document.form.grd[k].value = "";
+            document.form.hak[k].value = "";
+            break; }
+            }
+        }
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    function search(){
+        var num = form.num.value;         //학번
+        var name = form.name.value;       //이름
+        var mail = form.mail.value;         //이메일
+        var number = form.number.value;   //연락처
+    
+        var i=0,j=0,z=0,k=0;
+        var chaple = 0;             
+        var sel2 = 0, totalsel2 = 0;   //공통교양
+        var sel3 = 0, totalsel3 = 0;   //계열교양
+        var sel4 = 0, totalsel4 = 0;   //균형교양
+        var sel5 = 0, totalsel5 = 0;   //전공
+        var sel6 = 0, totalsel6 = 0;   //일반선택
+    
+    
+        var s_year="";
+        year = new Array("2023년도", "2024년도", "2025년도");
+    
+    
+    
+        for (i=0;i<8 ;++i ){
+            if (document.form.check[i].checked == true){
+                switch(i){
+                case 0:j=0, z=12;  break;
+                case 1:j=12, z=24; break;
+                case 2:j=24, z=36; break;
+                case 3:j=36, z=48; break;
+                   case 4:j=48, z=60; break;
+                case 5:j=60, z=72; break;
+                case 6:j=72, z=84; break;
+                default:j=84, z=96; break;}
+        for (k=j; k<z; ++k ){
+            if ((document.form.sel[k].value != 1)){                //구분선택이 아닐 때
+            if ((document.form.grd[k].value != "F")){              //성적이 F가 아닐 때
+            if ((document.form.grd[k].value != "N")){             //성적이 N이 아닐 때
+            if ((document.form.sel[k].value == 2)){	              //공통교양일 때
+            if ((document.form.grd[k].value == "P"))             //성적이 pass일 때
+                chaple = chaple + 1;                      //채플이수횟수 증가.
+                sel2 = parseInt(document.form.hak[k].value); 
+                totalsel2 = totalsel2 + sel2; }
+            else if ((document.form.sel[k].value == 3)){              //계열교양일 때
+                sel3 = parseInt(document.form.hak[k].value); //학점의 합
+                totalsel3 = totalsel3 + sel3; }
+            else if ((document.form.sel[k].value == 4)){              //균형교양일 때
+                sel4 = parseInt(document.form.hak[k].value); //학점의 합
+                totalsel4 = totalsel4 + sel4; }
+            else if ((document.form.sel[k].value == 5)){              //전공일 때
+                sel5 = parseInt(document.form.hak[k].value); //학점의 합
+                totalsel5 = totalsel5 + sel5; }
+            else if ((document.form.sel[k].value == 6)){              //일반선택일 때
+                sel6 = parseInt(document.form.hak[k].value); //학점의 합
+                totalsel6 = totalsel6 + sel6; }
+        }}}}}}
+    
+    
+    
+        for (i=0;i<8 ;++i ){
+            if (document.form.check[i].checked == true){
+                switch(i){
+                case 0:j=0, z=12;  break;
+                case 1:j=12, z=24; break;
+                case 2:j=24, z=36; break;
+                case 3:j=36, z=48; break;
+                case 4:j=48, z=60; break;
+                case 5:j=60, z=72; break;
+                case 6:j=72, z=84; break;
+                default:j=84, z=96; break;
+                }
+        for (k=j;k<z ;++k ){
+            if ((document.form.sel[k].value != 1)){                   //구분선택이 아닐 때
+            if ((document.form.grd[k].value == "F")){                //성적이 F일 때
+            if ((document.form.sel[k].value == 2)){                  //공통교양일 때
+                npsel2 = parseInt(document.form.hak[k].value); //학점의 합
+                nptotalsel2 = nptotalsel2 + npsel2;}
+            else if ((document.form.sel[k].value == 3)){                 //계열교양일 때
+                npsel3 = parseInt(document.form.hak[k].value);  //학점의 합
+                nptotalsel3 = nptotalsel3 + npsel3;}
+            else if ((document.form.sel[k].value == 4)){                 //균형교양일때
+                npsel4 = parseInt(document.form.hak[k].value);  //학점의 합
+                nptotalsel4 = nptotalsel4 + npsel4;}
+            else if ((document.form.sel[k].value == 5)){                 //전공일때
+                npsel5 = parseInt(document.form.hak[k].value);  //학점의 합
+                nptotalsel5 = nptotalsel5 + npsel5;}
+            else if ((document.form.sel[k].value == 6)){                  //일반선택일때
+                nosel6 = parseInt(document.form.hak[k].value);  //학점의 합
+                nptotalsel6 = nptotalsel6 + npsel6;}
+            }}}}} 
+    
+        var total = totalsel2+totalsel3+totalsel4+totalsel5+totalsel6;
+            
+        for (var x=0; x<form.year.length; x++) {
+            if (form.year[x].checked) {
+            s_year = year[x];   //라디오배열중 선택된값을 s_year변수에 대입
+            break;
+            }
+        }
+    
+    
+    
+        switch(x){ //[기초교양,전공탐색,전인교양,JNU,전공,최소졸업학점]
+                case 0: var jolup = [8,10,10,2,70,130]; break; //2023년
+                case 1: var jolup = [8,10,10,2,70,130]; break;  //2024년
+                case 2: var jolup = [8,10,10,2,70,130];break;   //20025년 이후
+        }
+    
+    
+    
+    
+        var jolfinal = new Array(5);
+            if((jolup[0] - chaple) <= -1){jolfinal[0] = 0; }
+		    else if ((jolup[0] - chaple) >= 0){jolfinal[0] = jolup[0] - chaple; }
+            if((jolup[1] - totalsel2) <= -1){jolfinal[1] = 0; }
+            else if ((jolup[1] - totalsel2) >= 0){jolfinal[1] = jolup[1] - totalsel2; } 
+            if((jolup[2] - totalsel3) <= -1){jolfinal[2] = 0; }
+            else if ((jolup[2] - totalsel3) >= 0){jolfinal[2] = jolup[2] - totalsel3; }
+            if((jolup[3] - totalsel4) <= -1){jolfinal[3] = 0; }
+            else if ((jolup[3] - totalsel4) >= 0){jolfinal[3] = jolup[3] - totalsel4; }
+            if((jolup[4] - totalsel5) <= -1){jolfinal[4] = 0; }
+            else if ((jolup[4] - totalsel5) >= 0){jolfinal[4] = jolup[4] - totalsel5; }
+            if((jolup[5] - totalsel6) <= -1){jolfinal[5] = 0; }
+            else if ((jolup[5] - totalsel6) >= 0){jolfinal[5] = jolup[5] - total;}
+            
+    
+    
+    
+    
+    
+        document.write("<table border = 1 width = 1000>");
+        document.write("<tr align = center><td><h1>졸업학점 조회 결과</h1></td></tr>");
+        document.write("</table>");
+        document.write("<table border = 1 width = 1000>");
+        document.write("<tr align = center><td>학생 정보");
+        document.write("<table border = 1 width = 50%>"+ "<tr>" 
+                + "<td width = 15%>학번</td><td>"+num+"</td>"
+                + "<td width = 15%>이름</td><td>"+name+"</td>"+ "</tr>"
+                + "<tr>"
+                + "<td width = 15%>이메일</td><td>"+mail+"</td>"
+                + "<td width = 15%>연락처</td><td>"+number+"</td>"
+                + "</tr>"
+                + "<tr>"
+                + "<td width = 15%>졸업년도</td>"
+                + "<td colspan = 3>"+s_year+"</td>"
+                + "</tr></table>");
+        document.write("</td></tr>");
+        document.write("</table>");
+        document.write("<table border = 1 width = 1000>");
+        document.write("<tr><td colspan = 11>※ 성적 누계 내역</td></tr>");
+        document.write("<tr>");
+        document.write("<td>기초교양</td>");
+        document.write("<td>전공탐색</td>");
+        document.write("<td>전인교양</td>");
+        document.write("<td>전공</td>");
+        document.write("<td>JNU</td>");
+        document.write("<td>총 취득학점</td>");
+        document.write("</tr>");
+        document.write("</td></tr>");
+        document.write("<tr>");
+        document.write("<td>"+totalsel2+"</td>");
+        document.write("<td>"+totalsel3+"</td>");
+        document.write("<td>"+totalsel4+"</td>");
+        document.write("<td>"+totalsel5+"</td>");
+        document.write("<td>"+totalsel6+"</td>");
+        document.write("<td>"+total+"</td>");
+        document.write("</tr>");
+        document.write("</table>");
+        document.write("<br><br>");
+        document.write("<table border = 1 width = 1000>");
+        document.write("<tr><td colspan=8>※ 졸업 필요 학점계산</td></tr>");
+        document.write("<tr>");
+        document.write("<td>  </td>");
+        document.write("<td>기초교양</td>");
+        document.write("<td>전공탐색</td>");
+        document.write("<td>전인교양</td>");
+        document.write("<td>JNU</td>");
+        document.write("<td>전공</td>");
+        document.write("<td>졸업학점</td>");
+        document.write("</tr>");
+        document.write("<tr>");
+        document.write("<td>졸업 필수 이수</td>");
+            for (var jol=0;jol<7 ;jol++ ){
+            document.write("<td>"+jolup[jol]+"</td>");}
+        document.write("</tr>");
+        document.write("<tr>");
+        document.write("<td>이수학점</td>");
+        document.write("<td>"+chaple+"</td>");
+        document.write("<td>"+totalsel2+"</td>");
+        document.write("<td>"+totalsel3+"</td>");
+        document.write("<td>"+totalsel4+"</td>");
+        document.write("<td>"+totalsel5+"</td>");
+        document.write("<td>"+total+"</td>");
+        document.write("</tr>");
+        document.write("<tr>");
+        document.write("<td>필요학점</td>");
+        document.write("<td>"+jolfinal[0]+"</td>");
+        document.write("<td>"+jolfinal[1]+"</td>");
+        document.write("<td>"+jolfinal[2]+"</td>");
+        document.write("<td>"+jolfinal[3]+"</td>");
+        document.write("<td>"+jolfinal[4]+"</td>");
+        document.write("<td>"+jolfinal[5]+"</td>");
+        document.write("</tr>");
+        document.write("</table>");
+    }
+    document.write("</form>");   </script></head>
+    

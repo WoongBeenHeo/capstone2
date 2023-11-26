@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>채팅 앱 UI</title>
+    <style>
+        /* 스타일을 조정하여 채팅 앱과 유사한 UI 생성 */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .chat-container {
+            width: 400px;
+            height: 500px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .chat-messages {
+            height: 400px;
+            overflow-y: scroll;
+            padding: 10px;
+        }
+        .message {
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 5px;
+            display: inline-block;
+            max-width: 80%;
+        }
+        .user-message {
+            background-color: #d6eef8;
+            float: right;
+        }
+        .bot-message {
+            background-color: #e8e8e8;
+            float: left;
+        }
+        .message-text {
+            margin: 0;
+        }
+        .input-container {
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            background-color: #f9f9f9;
+        }
+        .user-input {
+            flex: 1;
+            padding: 8px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+        .send-btn {
+            flex: 0 0 auto;
+            margin-left: 10px;
+            border-radius: 3px;
+            padding: 8px 15px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                <p class="message-text">안녕하세요! 무엇을 도와드릴까요?</p>
+            </div>
+            <!-- 이하에 메시지 추가 -->
+        </div>
+        <div class="input-container">
+            <input type="text" id="userInput" class="user-input" placeholder="메시지를 입력하세요...">
+            <button onclick="sendMessage()" class="send-btn">전송</button>
+        </div>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var userInput = document.getElementById("userInput").value;
+            displayUserMessage(userInput);
+            getBotResponse(userInput);
+            document.getElementById("userInput").value = "";
+        }
+
+        function displayUserMessage(message) {
+            var chatMessages = document.getElementById("chatMessages");
+            var userMessage = document.createElement("div");
+            userMessage.classList.add("message", "user-message");
+            userMessage.innerHTML = `<p class="message-text">${message}</p>`;
+            chatMessages.appendChild(userMessage);
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll to bottom
+        }
+
+        function displayBotMessage(message) {
+            var chatMessages = document.getElementById("chatMessages");
+            var botMessage = document.createElement("div");
+            botMessage.classList.add("message", "bot-message");
+            botMessage.innerHTML = `<p class="message-text">${message}</p>`;
+            chatMessages.appendChild(botMessage);
+            chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll to bottom
+        }
+
+        function getBotResponse(question) {
+            var answers = {
+                "당신의 이름은?": "제 이름은 챗봇입니다.",
+                "웹프로그래밍": "전공필수, 3학점",
+                "전쟁과평화": "전공탐색, 사회계, 2학점",
+                "민주시민교육의기초": "전공탐색, 사회계, 2학점",
+                "법학입문": "전공탐색, 사회계, 2학점",
+                "관광개발입문": "전공탐색, 사회계, 2학점",
+                "기업가정신과혁신": "전공탐색, 사회계, 2학점",
+                "인터넷비즈니스입문": "전공탐색, 사회계, 2학점",
+                "관광학의이해": "전공탐색, 사회계, 2학점",
+                "시장경제의이해": "전공탐색, 사회계, 2학점",
+                "인간과사회": "전공탐색, 사회계, 2학점",
+                "인간과식량": "전공탐색, 사회계, 2학점",
+                "지역과환경개론": "전공탐색, 사회계, 2학점",
+                "현대행정학입문": "전공탐색, 사회계, 2학점",
+                "회계학의기초": "전공탐색, 사회계, 2학점",
+                "미디어의이해": "전공탐색, 사회계, 2학점",
+                "지구촌의이해와역사": "전공탐색, 사회계, 2학점",
+                "예비교원을위한아라교육광장": "전공탐색, 사회계, 2학점",
+                "C프로그래밍및실습": "전공탐색, 공학계, 3학점",
+                "건축공학개론": "전공탐색, 공학계, 2학점",
+                "환경과공해": "전공탐색, 공학계, 2학점",
+                "공학윤리": "전공탐색, 공학계, 2학점",
+                "인간과건축": "전공탐색, 공학계, 2학점",
+                "정보통신과컴퓨터개론": "전공탐색, 공학계, 2학점",
+                // 필요한 만큼 질문과 답변 추가하기
+            };
+            var botResponse = answers[question.toLowerCase()] || "그 질문을 이해하지 못했어요.";
+            displayBotMessage(botResponse);
+        }
+    </script>
+</body>
+</html>

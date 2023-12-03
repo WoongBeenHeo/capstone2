@@ -446,8 +446,40 @@
     
     
     
-        document.write("<table border = 1 width = 1000>");
-        document.write("<tr align = center><td><h1>졸업학점 조회 결과</h1></td></tr>");
+        document.write(`
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f7f7f7;
+      margin: 20px;
+      padding: 20px;
+      color: #333;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+    }
+    th {
+      background-color: #333;
+      color: #fff;
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+  </style>
+`);
+    
+            document.write("<tr align = center><td><h1>졸업학점 조회 결과</h1></td></tr>");
         document.write("</table>");
         document.write("<table border = 1 width = 1000>");
         document.write("<tr align = center><td>학생 정보");
@@ -498,7 +530,7 @@
         document.write("</tr>");
         document.write("<tr>");
         document.write("<td>졸업 필수 이수</td>");
-            for (var jol=0;jol<7 ;jol++ ){
+            for (var jol=0;jol<6 ;jol++ ){
             document.write("<td>"+jolup[jol]+"</td>");}
         document.write("</tr>");
         document.write("<tr>");
